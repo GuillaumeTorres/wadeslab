@@ -1,5 +1,5 @@
 service_number=$( docker ps -q | wc -l )
-if [ "$service_number" != "2" ]
+if [ "$service_number" != "4" ]
 then
     echo "a container has unexpectedly shutdown"
     exit 1
