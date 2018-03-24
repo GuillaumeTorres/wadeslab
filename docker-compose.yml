@@ -11,11 +11,6 @@ services:
       - "80:80"
   httpd:
     build: wadeshome
-    ports:
-      - "8081"
-    environment:
-      - NGINX_HOST=wadeslab.tk
-      - NGINX_PORT=8081
     networks:
       httpd_net:
         aliases:
@@ -28,8 +23,6 @@ services:
       jenkins_net:
         aliases:
           - jenkins.lab
-    ports:
-      - "8080"
 networks:
   frontend:
   jenkins_net:
