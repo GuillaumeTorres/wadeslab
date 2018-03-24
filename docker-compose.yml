@@ -8,7 +8,7 @@ services:
     ports:
       - "443:443"
       - "80:80"
-  nginx:
+  httpd:
     build: wadeshome
     ports:
       - "8081"
