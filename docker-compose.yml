@@ -34,7 +34,7 @@ services:
     networks:
       netdata_net:
         aliases:
-          - jenkins
+          - netdata
 networks:
   frontend:
   jenkins_net:
