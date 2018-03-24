@@ -1,4 +1,4 @@
-for url in {jenkins.,,www.}wadeslab.tk
+for url in {jenkins.,,www.,test.}wadeslab.tk
 do
     response=$( curl -k -s -o /dev/null -w "%{http_code}" https://$url )
 
