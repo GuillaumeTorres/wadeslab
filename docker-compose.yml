@@ -40,3 +40,5 @@ networks:
   jenkins_net:
   httpd_net:
   portainer_net:
+volumes:
+  portainer_data:
