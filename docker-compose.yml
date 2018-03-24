@@ -9,16 +9,16 @@ services:
       - "443:443"
       - "80:80"
   portainer:
-    image: portainer/portainer
-    volumes:
-      - ./portainer/data:/data
-      - /var/run/docker.sock:/var/run/docker.sock
+    build: nginx
+    ports:
+      - "8081"
+    environment:
+      - NGINX_HOST=foobar.com
+      - NGINX_PORT=8081
     networks:
       urlredir:
         aliases:
-          - portainer.lab
-    ports:
-      - "9000"
+          - home.lab
   jenkins:
     build: jenkins
     volumes:
