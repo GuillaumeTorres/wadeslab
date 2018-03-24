@@ -19,7 +19,7 @@ services:
   jenkins:
     build: jenkins
     volumes:
-      - ./jenkins/data:/var/jenkins_home
+      - jenkins_data:/var/jenkins_home
     networks:
       jenkins_net:
         aliases:
@@ -40,3 +40,5 @@ networks:
   jenkins_net:
   httpd_net:
   netdata_net:
+volumes:
+  jenkins_data:
