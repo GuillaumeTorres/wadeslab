@@ -4,7 +4,8 @@ services:
     build: haproxy
     networks:
       frontend:
-      urlredir:
+      httpd_net:
+      jenkins_net:
     ports:
       - "443:443"
       - "80:80"
@@ -16,7 +17,7 @@ services:
       - NGINX_HOST=wadeslab.tk
       - NGINX_PORT=8081
     networks:
-      urlredir:
+      httpd_net:
         aliases:
           - home.lab
   jenkins:
@@ -24,11 +25,12 @@ services:
     volumes:
       - ./jenkins/data:/var/jenkins_home
     networks:
-      urlredir:
+      jenkins_net:
         aliases:
           - jenkins.lab
     ports:
       - "8080"
 networks:
   frontend:
-  urlredir:
+  jenkins_net:
+  httpd_net:
