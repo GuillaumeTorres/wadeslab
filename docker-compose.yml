@@ -29,8 +29,8 @@ services:
     cap_add:
       - SYS_PTRACE
     volumes:
-      - '/proc:/host/proc:ro'
-      - '/sys:/host/sys:ro'
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      - 'portainer_data:/data'
     networks:
       portainer_net:
         aliases:

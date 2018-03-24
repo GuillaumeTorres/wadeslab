@@ -4,7 +4,7 @@ then
     echo "a container has unexpectedly shutdown"
     exit 1
 fi
-for url in {jenkins.,,www.,status.}wadeslab.tk
+for url in {jenkins.,,www.,docker.}wadeslab.tk
 do
     response=$( curl -k -s -o /dev/null -w "%{http_code}" https://$url )
 
