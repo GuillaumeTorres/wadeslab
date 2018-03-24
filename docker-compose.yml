@@ -1,0 +1,34 @@
+version: "3"
+services:
+  haproxy:
+    build: haproxy
+    networks:
+      frontend:
+      urlredir:
+    ports:
+      - "443:443"
+      - "80:80"
+  portainer:
+    image: portainer/portainer
+    volumes:
+      - ./portainer/data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      urlredir:
+        aliases:
+          - portainer.lab
+    ports:
+      - "9000"
+  jenkins:
+    build: jenkins
+    volumes:
+      - ./jenkins/data:/var/jenkins_home
+    networks:
+      urlredir:
+        aliases:
+          - jenkins.lab
+    ports:
+      - "8080"
+networks:
+  frontend:
+  urlredir:
