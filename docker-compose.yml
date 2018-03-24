@@ -24,19 +24,19 @@ services:
       jenkins_net:
         aliases:
           - jenkins
-  netdata:
-    image: titpetric/netdata:1.9
+  portainer:
+    image: portainer/portainer
     cap_add:
       - SYS_PTRACE
     volumes:
       - '/proc:/host/proc:ro'
       - '/sys:/host/sys:ro'
     networks:
-      netdata_net:
+      portainer_net:
         aliases:
-          - netdata
+          - portainer
 networks:
   frontend:
   jenkins_net:
   httpd_net:
-  netdata_net:
+  portainer_net:
