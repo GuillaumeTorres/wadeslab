@@ -25,7 +25,7 @@ services:
         aliases:
           - jenkins
   netdata:
-    image: titpetric/netdata
+    image: titpetric/netdata:1.9
     cap_add:
       - SYS_PTRACE
     volumes:

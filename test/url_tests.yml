@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  remote_user: root
+    - name: test urls inside docker network
+      shell: |
+        
+    
