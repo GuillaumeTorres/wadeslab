@@ -6,6 +6,7 @@ services:
       frontend:
       httpd_net:
       jenkins_net:
+      netdata_net:
     ports:
       - "443:443"
       - "80:80"
@@ -14,7 +15,7 @@ services:
     networks:
       httpd_net:
         aliases:
-          - home.lab
+          - home
   jenkins:
     build: jenkins
     volumes:
@@ -22,8 +23,20 @@ services:
     networks:
       jenkins_net:
         aliases:
-          - jenkins.lab
+          - jenkins
+  netdata:
+    image: titpetric/netda
+    cap_add:
+      - SYS_PTRACE
+    volumes:
+      - '/proc:/host/proc:ro'
+      - '/sys:/host/sys:ro'
+    networks:
+      netdata_net:
+        aliases:
+          - jenkins
 networks:
   frontend:
   jenkins_net:
   httpd_net:
+  netdata_net:
