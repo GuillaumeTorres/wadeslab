@@ -1,2 +1,2 @@
 FROM jenkins
-USER root
+
