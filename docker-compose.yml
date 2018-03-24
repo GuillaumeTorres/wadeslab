@@ -8,12 +8,12 @@ services:
     ports:
       - "443:443"
       - "80:80"
-  portainer:
-    build: nginx
+  nginx:
+    build: wadeshome
     ports:
       - "8081"
     environment:
-      - NGINX_HOST=foobar.com
+      - NGINX_HOST=wadeslab.tk
       - NGINX_PORT=8081
     networks:
       urlredir:
