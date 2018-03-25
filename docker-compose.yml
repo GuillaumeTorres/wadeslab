@@ -26,8 +26,6 @@ services:
           - jenkins
   portainer:
     image: portainer/portainer
-    cap_add:
-      - SYS_PTRACE
     volumes:
       - '/var/run/docker.sock:/var/run/docker.sock'
       - 'portainer_data:/data'
