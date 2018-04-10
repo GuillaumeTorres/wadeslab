@@ -4,18 +4,11 @@ services:
     build: haproxy
     networks:
       frontend:
-      httpd_net:
       jenkins_net:
       portainer_net:
     ports:
       - "443:443"
       - "80:80"
-  httpd:
-    build: wadeshome
-    networks:
-      httpd_net:
-        aliases:
-          - home
   jenkins:
     build: jenkins
     volumes:
@@ -36,7 +29,6 @@ services:
 networks:
   frontend:
   jenkins_net:
-  httpd_net:
   portainer_net:
 volumes:
   portainer_data:
